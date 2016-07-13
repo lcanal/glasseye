@@ -2,7 +2,7 @@
 
 <div class="header">
     <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
-        <a class="pure-menu-heading" href="">TossDash</a>
+        <a class="pure-menu-heading" href="">Glasseye</a>
 
         <ul class="pure-menu-list">
             <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Home</a></li>
@@ -14,19 +14,39 @@
 
 <div class="splash-container">
     <div class="splash">
-        <p class="splash-subhead">
-          <% data.forEach(function(row){ %>
-            <%- row.name -%> | <%- row.env -%> | <%- row.date -%> | <%- row.result -%> <br />
-          <% }) %>
-        </p>
+      <p class="splash-subhead">
+          Last 10 Deploys
+      </p>
+          <table class="pure-table pure-table-bordered">
+          <thead>
+              <tr>
+                  <th>Project</th>
+                  <th>Environment</th>
+                  <th>Last Deployed</th>
+                  <th>Version</th>
+                  <th>Result</th>
+                  <th>Summary</th>
+              </tr>
+          </thead>
+
+          <tbody>
+            <% data.forEach(function(row){ %>
+              <tr>
+                <td><strong><%- row.name -%></strong></td>
+                <td><%- row.env -%></td>
+                <td><%- row.date -%></td>
+                <td><%- row.version -%></td>
+                <td><%- row.result -%></td>
+                <td><%- row.summary -%></td>
+              </tr>
+            <% }) %>
+              </tbody>
+            </table>
     </div>
 </div>
 
 
-
-
-
-<div class="content-wrapper">
+<!-- <div class="content-wrapper">
     <div class="content">
         <h2 class="content-head is-center">Excepteur sint occaecat cupidatat.</h2>
 
@@ -88,46 +108,7 @@
         </div>
     </div>
 
-    <div class="content">
-        <h2 class="content-head is-center">Dolore magna aliqua. Uis aute irure.</h2>
 
-        <div class="pure-g">
-            <div class="l-box-lrg pure-u-1 pure-u-md-2-5">
-                <form class="pure-form pure-form-stacked">
-                    <fieldset>
-
-                        <label for="name">Your Name</label>
-                        <input id="name" type="text" placeholder="Your Name">
-
-
-                        <label for="email">Your Email</label>
-                        <input id="email" type="email" placeholder="Your Email">
-
-                        <label for="password">Your Password</label>
-                        <input id="password" type="password" placeholder="Your Password">
-
-                        <button type="submit" class="pure-button">Sign Up</button>
-                    </fieldset>
-                </form>
-            </div>
-
-            <div class="l-box-lrg pure-u-1 pure-u-md-3-5">
-                <h4>Contact Us</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                    quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                    consequat.
-                </p>
-
-                <h4>More Information</h4>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                    tempor incididunt ut labore et dolore magna aliqua.
-                </p>
-            </div>
-        </div>
-
-    </div>
-
+</div>
+-->
 <%- include('footer.ejs') -%>

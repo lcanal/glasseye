@@ -1,0 +1,29 @@
+.pure-table-bordered tbody>tr:last-child>td {
+  background: white;
+}
+
+.pure-table-bordered tbody>tr:first-child>td {
+  background: white;
+}
+
+.pure-table-bordered td {
+    background-color: white;
+}
+
+.splash {
+  height: 95%;
+  width: 88%;
+}
+
+.splash-container {
+  background-color: #82b6d8;
+  height: 100%;
+}
+
+.splash-subhead{
+  font-size: 1.5em;
+}
+
+.pure-table {
+  width: 100%;
+}
