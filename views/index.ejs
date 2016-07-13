@@ -15,7 +15,9 @@
 <div class="splash-container">
     <div class="splash">
         <p class="splash-subhead">
-          <%- data -%>
+          <% data.forEach(function(row){ %>
+            <%- row.name -%> | <%- row.env -%> | <%- row.date -%> | <%- row.result -%> <br />
+          <% }) %>
         </p>
     </div>
 </div>
