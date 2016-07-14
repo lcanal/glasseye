@@ -1,7 +1,7 @@
 {
-  "name": "tossdash",
+  "name": "glasseye",
   "version": "1.0.0",
-  "description": "AdminIT Dashboard",
+  "description": "Better Bamboo Dashboard",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -11,7 +11,6 @@
   "dependencies": {
     "ejs": "^2.4.2",
     "express": "^4.14.0",
-    "pug": "^2.0.0-beta3",
     "request": "^2.73.0"
   }
 }

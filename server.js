@@ -1,19 +1,27 @@
 var express = require('express');
 var request = require('request');
 var app = express();
-
+var baseurl = "https://afs-dev.ucdavis.edu/bamboo/";
 
 app.use('/static', express.static('static'));
 app.set('view engine', 'ejs');
 
 app.get('/', function (req, res) {
-  var options = {
-    url: "",
-    'auth': {
-      'user': "",
-      'pass': ""
-    }
+
+  var settings = require('./settings.json');
+
+  if (!settings['url'].length) {
+      var error = "Error: blank URL in settings.json file."
+      console.log(error);
+      res.send(error);
+      return;
   }
+
+  var options = {
+    "url" : settings['url'] + "rest/api/latest/deploy/dashboard.json",
+    "auth":  settings['auth']
+  }
+
   request(options,function(error,response,body){
     var deploymentProjects = JSON.parse(body);
     var drawData = [];
@@ -27,11 +35,12 @@ app.get('/', function (req, res) {
           var deployState = deploymentProjects[index]['environmentStatuses'][env]['deploymentResult']['deploymentState'];
           var deploySummary = deploymentProjects[index]['environmentStatuses'][env]['deploymentResult']['reasonSummary'];
           var deployVersion = deploymentProjects[index]['environmentStatuses'][env]['deploymentResult']['deploymentVersion']['name'];
+          var deployVersionID = deploymentProjects[index]['environmentStatuses'][env]['deploymentResult']['deploymentVersion']['id'];
 
           deployDate = new Date(unixDate);
         }
         else{
-          var deployDate = "Never deployed."
+          var deployDate = new Date("July 28, 2008 15:00:00")
           var deployState = "N/A"
           var deploySummary = "N/A"
           var deployVersion = "N/A"
@@ -39,12 +48,13 @@ app.get('/', function (req, res) {
 
         //Construct data for table
         var data = [{
-          'name'      : deploymentProjects[index]['deploymentProject']['name'],
-          'env'       : deploymentProjects[index]['environmentStatuses'][env]['environment']['name'],
-          'date'      : deployDate,
-          'result'    : deployState,
-          'version'   : deployVersion,
-          'summary'   : deploySummary
+          'name'        : deploymentProjects[index]['deploymentProject']['name'],
+          'env'         : deploymentProjects[index]['environmentStatuses'][env]['environment']['name'],
+          'date'        : deployDate,
+          'result'      : deployState,
+          'version'     : deployVersion,
+          'versionurl'  : settings['url'] + "deploy/viewDeploymentVersion.action?versionId=" + deployVersionID,
+          'summary'     : deploySummary
         }]
       }
 
@@ -60,7 +70,7 @@ app.get('/', function (req, res) {
 
 
 app.listen(8080, function () {
-  console.log('TossDash listening on port 8080!');
+  console.log('Glasseye listening on port 8080!');
 });
 
 function sortDeployData(data,limit){
