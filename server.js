@@ -61,7 +61,7 @@ app.get('/', function (req, res) {
       drawData = drawData.concat(data);
     }
 
-    var sortedDeploys = sortDeployData(drawData,10);
+    var sortedDeploys = sortDeployData(drawData);
 
     res.render('index', { title: 'Glasseye - Bamboo Deploy Dashboard', data: sortedDeploys});
   })
@@ -73,7 +73,7 @@ app.listen(8080, function () {
   console.log('Glasseye listening on port 8080!');
 });
 
-function sortDeployData(data,limit){
+function sortDeployData(data){
   var newData = [];
   data.sort(function(a,b){
     return b.date - a.date;
@@ -81,7 +81,7 @@ function sortDeployData(data,limit){
 
   //Bundle the formatting of the date string since we're running through the whole
   //array anyway
-  for (var index=0; index <= limit; index++ ){
+  for (var index=0; index < data.length ; index++ ){
     data[index]['date'] = timeConverter(data[index]['date']);
     newData = newData.concat(data[index]);
   }

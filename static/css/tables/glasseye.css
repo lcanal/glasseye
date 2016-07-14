@@ -1,3 +1,7 @@
+body{
+  background: #82b6d8;
+}
+
 .pure-table-bordered tbody>tr:last-child>td {
   background: white;
 }
@@ -10,13 +14,18 @@
     background-color: white;
 }
 
+.pure-table td, .pure-table th {
+    padding: 1.0em 0em;
+}
+
 .splash {
   height: 95%;
-  width: 88%;
+  width: 95%;
+  text-transform: none;
 }
 
 .splash-container {
-  background-color: #82b6d8;
+  background-color: white;
   height: 100%;
 }
 
@@ -26,4 +35,8 @@
 
 .pure-table {
   width: 100%;
+}
+
+.pure-table thead{
+  text-align: center;
 }

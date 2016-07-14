@@ -136,11 +136,12 @@ a.pure-button-primary {
     z-index: 1;
     overflow: hidden;
     /* The following styles are required for the "scroll-over" effect */
+    /* Not needed for this style.
     width: 100%;
     height: 88%;
     top: 0;
     left: 0;
-    position: fixed !important;
+    position: fixed !important;*/
 }
 
 .splash {
