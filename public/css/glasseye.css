@@ -26,6 +26,7 @@ body{
 
 #searchinput {
   color: black;
+  text-align: center;
 }
 
 .splash-container {
@@ -39,6 +40,7 @@ body{
 
 .pure-table {
   width: 100%;
+  margin-bottom: 3em;
 }
 
 .pure-table thead{
