@@ -1,0 +1,39 @@
+<!-- index.html -->
+<!doctype html>
+<html ng-app="glasseye">
+<head>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+    <title>Glasseye</title>
+
+    <!-- Magic? -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <script src="/public/core.js"></script>
+</head>
+
+<body ng-controller="mainController">
+  <table class="table">
+	<tr>
+		<th>Name</th>
+		<th>Environment</th>
+		<th>Last Deployed</th>
+		<th>Version</th>
+    <th>Result</th>
+    <!--<th>Summary</th>-->
+	</tr>
+	<tr ng-repeat="deploy in deploys  | filter: searchKeyword ">
+		<td>{{deploy.name}}</td>
+		<td>{{deploy.env}}</td>
+		<td>{{deploy.date}}</td>
+    <td><a href="{{deploy.versionurl}}">{{deploy.version}}</a></td>
+    <td>{{deploy.result}}</td>
+    <!--<td>{{deploy.summary}}</td>-->
+    <td>
+		<!--<input type="button" value="Remove" class="btn btn-primary" ng-click="removeRow(company.name)"/>-->
+		</td>
+	</tr>
+</table>
+</body>
+
+</html>

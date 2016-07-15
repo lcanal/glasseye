@@ -59,7 +59,7 @@ router.get('/', function(req, res){
 
     var sortedDeploys = sortDeployData(drawData);
 
-    res.render('index', { title: 'Glasseye - Bamboo Deploy Dashboard', data: sortedDeploys});
+    res.send(sortedDeploys);
   })
 
 });
