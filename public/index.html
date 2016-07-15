@@ -25,10 +25,12 @@
   <div class="header">
     <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
         <a class="pure-menu-heading" href="">Glasseye</a>
+        <input id="searchinput" type="text" placeholder="Search" size="30"
+               class="form-control ng-pristine ng-valid" ng-model="searchKeyword" autofocus="1">
         <ul class="pure-menu-list">
             <li class="pure-menu-item pure-menu-selected"><a href="#" class="pure-menu-link">Home</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">N/A</a></li>
-            <li class="pure-menu-item"><a href="#" class="pure-menu-link">N/A</a></li>
+            <!-- <li class="pure-menu-item"><a href="#" class="pure-menu-link">N/A</a></li>
+            <li class="pure-menu-item"><a href="#" class="pure-menu-link">N/A</a></li>-->
         </ul>
     </div>
 </div>
@@ -37,17 +39,12 @@
   <div class="splash-container">
     <div class="splash">
       <p class="splash-subhead">
-        <input id="searchinput" type="text" placeholder="Search"
-               class="form-control ng-pristine ng-valid" ng-model="searchKeyword">
+          Total Results: ({{ results.length || "...." }})
       </p>
-      <span class="col-md-3">
-
-      </span>
-
   <table class="pure-table pure-table-bordere">
     <thead>
     <tr>
-      <th>Project</th>
+      <th>Projects</th>
       <th>Environment</th>
       <th>Last Deployed</th>
       <th>Version</th>
@@ -55,7 +52,7 @@
       <!--<th>Summary</th>-->
     </tr>
     </thead>
-	<tr ng-repeat="deploy in deploys  | filter: searchKeyword ">
+	<tr ng-repeat="deploy in deploys  | filter: searchKeyword as results">
 		<td>{{deploy.name}}</td>
 		<td>{{deploy.env}}</td>
 		<td>{{deploy.date}}</td>
