@@ -14,12 +14,23 @@ router.get('/', function(req, res){
   }
 
   var options = {
-    "url" : settings['url'] + "rest/api/latest/deploy/dashboard.json",
+    "url" : settings['url'] + "rest/api/latest/deploy/result.json",
     "auth":  settings['auth']
   }
 
   request(options,function(error,response,body){
-    var deploymentProjects = JSON.parse(body);
+    //Handle any non json errors by server:
+    var deploymentProjects = [];
+    try {
+       deploymentProjects= JSON.parse(body);
+      if (!deploymentProjects && typeof deploymentProjects !== "object") {
+          deploymentProjects = 0;
+        }
+    } catch (e) {
+      //Construct data for error
+      deploymentProjects = 0;
+    }
+    //var deploymentProjects = JSON.parse(body);
     var drawData = [];
     //Table headers:
     //project-name,last deployed dev,last deployed qa,last deployed uat, last deployed prep, last deployed prod
