@@ -30,10 +30,9 @@ router.get('/', function(req, res){
       //Construct data for error
       deploymentProjects = 0;
     }
-    //var deploymentProjects = JSON.parse(body);
+
     var drawData = [];
-    //Table headers:
-    //project-name,last deployed dev,last deployed qa,last deployed uat, last deployed prep, last deployed prod
+
     for (var index in deploymentProjects) {
       for (var env in deploymentProjects[index]['environmentStatuses']){
         //Check for never deployed environments.
@@ -63,9 +62,9 @@ router.get('/', function(req, res){
           'versionurl'  : settings['url'] + "deploy/viewDeploymentVersion.action?versionId=" + deployVersionID,
           'summary'     : deploySummary
         }]
-      }
 
-      drawData = drawData.concat(data);
+        drawData = drawData.concat(data);
+      }
     }
 
     var sortedDeploys = sortDeployData(drawData);

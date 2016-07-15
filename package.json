@@ -1,6 +1,6 @@
 {
   "name": "glasseye",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Better Bamboo Dashboard",
   "main": "server.js",
   "scripts": {
