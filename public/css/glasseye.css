@@ -1,0 +1,46 @@
+body{
+  background: #f5f5f5;
+}
+
+.pure-table-bordered tbody>tr:last-child>td {
+  background: white;
+}
+
+.pure-table-bordered tbody>tr:first-child>td {
+  background: white;
+}
+
+.pure-table td {
+    background-color: white;
+}
+
+.pure-table td, .pure-table th {
+    padding: 1.0em 0em;
+}
+
+.splash {
+  height: 95%;
+  width: 95%;
+  text-transform: none;
+}
+
+#searchinput {
+  color: black;
+}
+
+.splash-container {
+  background-color: white;
+  height: 100%;
+}
+
+.splash-subhead{
+  font-size: 1.5em;
+}
+
+.pure-table {
+  width: 100%;
+}
+
+.pure-table thead{
+  text-align: center;
+}
