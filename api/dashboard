@@ -14,7 +14,7 @@ router.get('/', function(req, res){
   }
 
   var options = {
-    "url" : settings['url'] + "rest/api/latest/deploy/result.json",
+    "url" : settings['url'] + "rest/api/latest/deploy/dashboard.json",
     "auth":  settings['auth']
   }
 
