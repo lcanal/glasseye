@@ -49,3 +49,7 @@ body{
 .pure-table thead{
   text-align: center;
 }
+
+.pure-menu-horizontal {
+  white-space: normal;
+}
