@@ -24,10 +24,16 @@ router.get('/', function(req, res){
     try {
        deploymentProjects= JSON.parse(body);
       if (!deploymentProjects && typeof deploymentProjects !== "object") {
+          console.error("Error from url:(" + options['url'] + "):");
+          console.error(error);
+          console.error("Server response: "+ response.toString() + response.statusCode);
           deploymentProjects = 0;
         }
     } catch (e) {
       //Construct data for error
+      console.error("Error from url:(" + options['url'] + "):");
+      console.error(error);
+      console.error("Server response: "+ response.statusCode);
       deploymentProjects = 0;
     }
 

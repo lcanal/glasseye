@@ -1,5 +1,5 @@
 var glasseye = angular.module('glasseye', ['ngSanitize']);
-var refreshPeriodMins = .5;
+var refreshPeriodMins = 5;
 
 glasseye.controller("mainController",["$scope", "$http", "$interval", function ($scope, $http, $interval){
     var dataGrabber = function(){
