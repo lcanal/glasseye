@@ -55,3 +55,12 @@ body{
 .pure-menu-horizontal {
   white-space: normal;
 }
+
+.resultsheader {
+  left: 30px;
+}
+
+.updatedheader {
+  position: absolute;
+  right: 30px;
+}
