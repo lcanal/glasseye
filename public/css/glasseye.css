@@ -16,6 +16,8 @@ body{
 
 .pure-table td, .pure-table th {
     padding: 1.0em 0em;
+    word-wrap: break-word;
+    max-width: 150px;
 }
 
 .splash {

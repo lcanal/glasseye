@@ -16,6 +16,7 @@
 
     <!-- Magic? -->
     <script src="/public/js/angular.min.js"></script><!-- load angular locally. CDN problems.. -->
+    <script src="/public/js/angular-sanitize.min.js"></script>
     <script src="/public/core.js"></script>
 </head>
 
@@ -49,7 +50,7 @@
       <th>Last Deployed</th>
       <th>Version</th>
       <th>Result</th>
-      <!--<th>Summary</th>-->
+      <th>Summary</th>
     </tr>
     </thead>
 	<tr ng-repeat="deploy in deploys  | filter: searchKeyword as results">
@@ -58,7 +59,7 @@
 		<td>{{deploy.date}}</td>
     <td><a href="{{deploy.versionurl}}">{{deploy.version}}</a></td>
     <td>{{deploy.result}}</td>
-    <!--<td>{{deploy.summary}}</td>-->
+    <td ng-bind-html="deploy.summary"></td>
     <!--<td>
 		<input type="button" value="Remove" class="btn btn-primary" ng-click="removeRow(company.name)"/>
   </td>-->

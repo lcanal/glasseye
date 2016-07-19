@@ -1,4 +1,4 @@
-var glasseye = angular.module('glasseye', []);
+var glasseye = angular.module('glasseye', ['ngSanitize']);
 
 glasseye.controller("mainController",["$scope", "$http", function ($scope, $http){
     var globalData = [];
