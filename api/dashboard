@@ -24,16 +24,16 @@ router.get('/', function(req, res){
     try {
        deploymentProjects= JSON.parse(body);
       if (!deploymentProjects && typeof deploymentProjects !== "object") {
-          console.error("Error from url:(" + options['url'] + "):");
+          console.error("Error from url1:(" + options['url'] + "):");
           console.error(error);
           console.error("Server response: "+ response.toString() + response.statusCode);
           deploymentProjects = 0;
         }
     } catch (e) {
       //Construct data for error
-      console.error("Error from url:(" + options['url'] + "):");
+      console.error("Error from url2:(" + options['url'] + "):");
       console.error(error);
-      console.error("Server response: "+ response.statusCode);
+      console.error("Server response: "+ e);
       deploymentProjects = 0;
     }
 
@@ -54,7 +54,7 @@ router.get('/', function(req, res){
         else{
           var deployDate = new Date("July 28, 2008 15:00:00")
           var deployState = "N/A"
-          var deploySummary = "N/A"
+          var deploySummary = "Never deployed"
           var deployVersion = "N/A"
         }
 
